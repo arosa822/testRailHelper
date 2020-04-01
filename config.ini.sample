@@ -1,0 +1,4 @@
+[User]
+userEmail = youremail@example.com
+userHash = yourhash
+base_url = https.example.com

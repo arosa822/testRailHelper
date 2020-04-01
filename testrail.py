@@ -14,15 +14,17 @@ Copyright Gurock Software GmbH. See license.md for details.
 
 import base64
 import json
-
 import requests
-
+import configparser
 
 
 class APIClient:
     def __init__(self, base_url):
-        self.user = ''
-        self.password = ''
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+        self.user = config['User']['userEmail']
+        self.password = config['User']['userHash']
+        self.base_url = config['User']['base_url']
         if not base_url.endswith('/'):
             base_url += '/'
         self.__url = base_url + 'index.php?/api/v2/'
